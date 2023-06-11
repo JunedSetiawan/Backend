@@ -27,6 +27,8 @@ app.post('/siswa', async (req, res) => {
             data: {
                 nama: nama,
                 kelas: kelas,
+                tanggal_lahir: tanggal_lahir,
+                ekstrakurikuler : ekstrakurikuler
             }
         });
         res.json({
@@ -45,7 +47,7 @@ app.put('/siswa/:id', async (req, res) => {
         const { nama, kelas } = req.body;
         const updatedSiswa = await prisma.siswa.update({
             where: { id: Number(id) },
-            data: { nama, kelas }
+            data: { nama, kelas, tanggal_lahir, ekstrakurikuler }
         });
         res.json({
             message: 'Data berhasil diubah',
