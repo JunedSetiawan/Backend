@@ -8,10 +8,11 @@ datasource db {
 }
 
 model siswa {
-  id    Int    @id @default(autoincrement())
-  nama  String
-  kelas String
-  tanggal_lahir DateTime? @db.Date
+  id              Int       @id @default(autoincrement())
+  nama            String
+  kelas           String
+  tanggal_lahir   DateTime? @db.Date
   ekstrakurikuler String?
-  createdAt DateTime @default(now())
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime? @updatedAt
 }
