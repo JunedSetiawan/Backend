@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "prism" : "npx prisma migrate dev",
-    "start": "nodemon ./app.js",
+    "prism": "npx prisma migrate dev",
+    "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prisma": {
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.15.0",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.8",
     "express": "^4.18.2",
     "nodemon": "^2.0.22",

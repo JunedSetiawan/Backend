@@ -1,12 +1,6 @@
-const express = require('express')
-const {PrismaClient} = require('@prisma/client')
+const prisma = require("../src/connection")
 
-const prisma = new PrismaClient()
-const app = express()
-
-app.use(express.json())
-
-app.get('/siswa', async (req, res) => {
+const getAllData = async (req, res) => {
     try {
         const siswa = await prisma.siswa.findMany();
         if (siswa.length === 0) {
@@ -17,10 +11,9 @@ app.get('/siswa', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Gagal mendapatkan data siswa: ' + err.message });
     }
-});
+}
 
-
-app.post('/siswa', async (req, res) => {
+const createData = async (req, res) => {
     try {
         const { nama, kelas } = req.body;
         const result = await prisma.siswa.create({
@@ -38,10 +31,9 @@ app.post('/siswa', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Gagal membuat data siswa: ' + err.message });
     }
-});
+}
 
-
-app.put('/siswa/:id', async (req, res) => {
+const updateData = async (req, res) => {
     try {
         const { id } = req.params;
         const { nama, kelas } = req.body;
@@ -56,9 +48,9 @@ app.put('/siswa/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Gagal memperbarui data siswa: ' + err.message });
     }
-});
+}
 
-app.delete('/siswa/:id', async (req, res) => {
+const deleteData = async (req, res) => {
     try {
         const { id } = req.params;
         const siswa = await prisma.siswa.delete({
@@ -71,9 +63,11 @@ app.delete('/siswa/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Gagal menghapus data siswa: ' + err.message });
     }
-});
+}
 
-
-app.listen(3001 || process.env.PORT, ()=>
-    console.log(`Server ready at: http://localhost:3001`)
-)
+module.exports = {
+    getAllData,
+    createData,
+    updateData,
+    deleteData
+}
