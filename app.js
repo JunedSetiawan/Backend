@@ -1,6 +1,6 @@
 const express = require('express')
 // const cors = require('cors')
-const SiswaRoute = require("../routes/SiswaRoute")
+const SiswaRoute = require("./routes/SiswaRoute")
 const path = require("path")
 const app = express()
 
