@@ -2,14 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
+    "postinstall": "prisma generate",
     "prism": "npx prisma migrate dev --preview-feature",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
