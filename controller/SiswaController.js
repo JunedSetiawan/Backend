@@ -15,13 +15,13 @@ const getAllData = async (req, res) => {
 
 const createData = async (req, res) => {
     try {
-        const { nama, kelas } = req.body;
+        const { nama, kelas, tanggal_lahir,jurusan } = req.body;
         const result = await prisma.siswa.create({
             data: {
                 nama: nama,
                 kelas: kelas,
                 tanggal_lahir: tanggal_lahir,
-                ekstrakurikuler : ekstrakurikuler
+                jurusan :jurusan
             }
         });
         res.json({
@@ -36,10 +36,10 @@ const createData = async (req, res) => {
 const updateData = async (req, res) => {
     try {
         const { id } = req.params;
-        const { nama, kelas } = req.body;
+        const { nama, kelas,tanggal_lahir,jurusan } = req.body;
         const updatedSiswa = await prisma.siswa.update({
             where: { id: Number(id) },
-            data: { nama, kelas, tanggal_lahir, ekstrakurikuler }
+            data: { nama, kelas, tanggal_lahir, jurusan}
         });
         res.json({
             message: 'Data berhasil diubah',

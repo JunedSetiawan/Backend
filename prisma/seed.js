@@ -1,19 +1,17 @@
-const { PrismaClient } = require('@prisma/client')
-const dayjs = require('dayjs')
-const prisma = new PrismaClient()
+const prisma = require("../src/connection")
 
 const siswaData = [
   {
     nama: 'Alice',
-    kelas: '10A',
-    ekstrakurikuler: 'voly,Sepak Bola',
-    tanggal_lahir : dayjs(2003-04-15).toDate()
+    kelas: 'X',
+    tanggal_lahir: new Date("2003-04-15").toISOString(),
+    jurusan : "RPL" 
   },
   {
     nama: 'Joe',
-    kelas: '10B',
-    ekstrakurikuler: 'voly,Basket',
-    tanggal_lahir : dayjs(2003-05-11).toDate()
+    kelas: 'XI',
+    tanggal_lahir: new Date("2003-05-11").toISOString(),
+    jurusan : "OI"
   }
 ]
 

@@ -3,16 +3,32 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+enum Kelas {
+  X
+  XI
+  XII
+}
+
+enum Jurusan {
+  RPL
+  OI
+  EI
+  TPM
+  DPIB
+  TBSM
 }
 
 model siswa {
-  id              Int       @id @default(autoincrement())
-  nama            String
-  kelas           String
-  tanggal_lahir   DateTime? @db.Date
-  ekstrakurikuler String?
-  createdAt       DateTime  @default(now())
-  updateAt        DateTime? @updatedAt
+  id            Int       @id @default(autoincrement())
+  nama          String
+  kelas         Kelas
+  tanggal_lahir DateTime  @db.Date
+  jurusan       Jurusan
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime? @updatedAt
 }

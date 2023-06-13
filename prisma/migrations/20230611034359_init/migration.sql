@@ -1,4 +1,0 @@
--- AlterTable
-ALTER TABLE `siswa` ADD COLUMN `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    ADD COLUMN `ekstrakurikuler` VARCHAR(191) NULL,
-    ADD COLUMN `tanggal_lahir` DATE NULL;
