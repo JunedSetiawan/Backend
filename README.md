@@ -1,3 +1,3 @@
 ## Simple Backend Crud
-for data siswa API using express-mysql-prisma
+data sample siswa API using express-mysql-prisma
 
